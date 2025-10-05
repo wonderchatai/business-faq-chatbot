@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build the application
+      - name: Build the Next.js application
         run: npm run build
 
       - name: Publish to Cloudflare Pages
@@ -27,4 +27,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy ./dist --project-name=business-faq-chatbot
+          command: pages deploy . --project-name=business-faq-chatbot
