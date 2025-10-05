@@ -1,0 +1,20 @@
+name = "business-faq-chatbot"
+compatibility_date = "2024-07-22" # Use a recent date
+
+[vars]
+# Environment variables here are exposed to the Pages Function runtime
+# (e.g., OPENAI_API_KEY, though it's usually set in Cloudflare dashboard)
+
+[build]
+command = "npm run build" # The build command for Cloudflare Pages
+# This tells Cloudflare Pages where to find the generated _worker.js and static assets
+# For next-on-pages, this is typically where the 'out' directory is generated.
+# However, the `pages deploy` command in workflow already handles the 'out' directory.
+# So, this might not be strictly necessary here, but good to have a default.
+
+[site]
+# This section is for static site deployments without Pages Functions
+# It's not directly applicable if we're using Next.js with Functions
+
+[env.production]
+compatibility_flags = ["nodejs_compat"]
