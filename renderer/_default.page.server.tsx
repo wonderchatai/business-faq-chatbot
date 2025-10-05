@@ -1,5 +1,5 @@
 import { renderToStream } from 'react-dom/server'
-import { escapeInject } from 'vite-plugin-ssr'
+import { escapeInject } from 'vike/server'
 
 export { render }
 
