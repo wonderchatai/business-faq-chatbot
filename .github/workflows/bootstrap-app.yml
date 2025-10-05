@@ -1,0 +1,39 @@
+
+name: Bootstrap App
+
+on:
+  workflow_dispatch:
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Bootstrap the application
+        run: |
+          npm i -g create-hono
+          create-hono my-app --template x-create-hono-vite-react-cloudflare-pages
+          mv my-app/* .
+          rm -rf my-app
+
+      - name: Create .gitignore
+        run: |
+          echo "node_modules
+.wrangler
+dist
+out" > .gitignore
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add .
+          git commit -m 'Bootstrap the application'
+          git push
