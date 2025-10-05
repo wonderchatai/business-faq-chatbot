@@ -29,5 +29,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: your-project-name # Replace with your project name
-          directory: ./dist
+          projectName: business-faq-chatbot
+          directory: ./dist/client

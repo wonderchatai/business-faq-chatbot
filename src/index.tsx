@@ -1,7 +1,10 @@
 import { Hono } from 'hono'
 import { handle } from 'hono/vite'
+import chat from './api/chat'
 
 const app = new Hono()
+
+app.route('/api/chat', chat)
 
 app.get('*_workers.js', (c) => {
   // Forward requests for the worker script to the vite dev server.
