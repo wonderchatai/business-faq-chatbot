@@ -9,7 +9,14 @@ export default defineConfig({
     }),
     vike()
   ],
-  ssr: {
-    target: 'webworker' // This tells Vite/Vike to build for a Cloudflare Worker environment
-  }
+  build: {
+    ssr: {
+      target: 'webworker',
+      rollupOptions: {
+        output: {
+          entryFileNames: '_worker.js', // This line is crucial for Cloudflare Pages Functions
+        },
+      },
+    },
+  },
 })
