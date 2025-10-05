@@ -16,7 +16,7 @@
     "bootstrap": "^5.3.3"
   },
   "devDependencies": {
-    "@opennextjs/cloudflare": "^0.11.0",
+    "@opennextjs/cloudflare": "^1.9.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
