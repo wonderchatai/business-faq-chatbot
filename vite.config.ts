@@ -8,5 +8,8 @@ export default defineConfig({
       entry: 'src/index.tsx'
     }),
     vike()
-  ]
+  ],
+  ssr: {
+    target: 'webworker' // This tells Vite/Vike to build for a Cloudflare Worker environment
+  }
 })
